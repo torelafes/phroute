@@ -34,7 +34,25 @@ class Dispatcher {
         	$this->handlerResolver = $resolver;
         }
     }
+    
+    /**
+      * Get detailed match information for the route with given HTTP Method / URI
+      *
+      * @param string $httpMethod
+      * @param string $uri
+      * @return array
+      */
+     public function match($httpMethod, $uri) 
+     {
+        list($handler, $filters, $vars) = $this->dispatchRoute($httpMethod, trim($uri, '/'));
 
+        return array(
+            'handler'  => $handler,
+            'filters'  => $filters,
+            'vars'     => $vars
+        );
+     }
+    
     /**
      * Dispatch a route for the given HTTP Method / URI.
      *
