@@ -85,7 +85,7 @@ class Dispatcher {
      * @param null $response
      * @return mixed|null
      */
-    private function dispatchFilters($filters, $response = null)
+    public function dispatchFilters($filters, $response = null)
     {
         while($filter = array_shift($filters))
         {
@@ -106,7 +106,7 @@ class Dispatcher {
      * @param $filters
      * @return array
      */
-    private function parseFilters($filters)
+    public function parseFilters($filters)
     {        
         $beforeFilter = array();
         $afterFilter = array();
